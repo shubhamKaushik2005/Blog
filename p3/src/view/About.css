@@ -1,0 +1,57 @@
+/* About.css */
+
+.container {
+  margin-top: 40px;
+}
+
+.product-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-content h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+.product-content h2 {
+  font-size: 1.5rem;
+  color: #495057;
+  margin-bottom: 20px;
+}
+
+.product-content p {
+  font-size: 1rem;
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .product-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .product-image, .product-content {
+    flex: 1;
+  }
+
+  .product-image {
+    padding-right: 30px;
+  }
+}

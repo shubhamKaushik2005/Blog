@@ -181,16 +181,30 @@ app.get('/', (req, res) => {
     res.json(data);
 })
 
+app.get('/data/:id', (req, res) => {
+    const Blog = data.find(u => u.id === parseInt(req.params.id));
+    Blog ? res.json(Blog) : res.status(404).send('User not found');
+});
+
 app.post('/', (req, res) => {
     data.push({ id: req.body.id, src: req.body.src, heading: req.body.heading, desc: req.body.desc, price: req.body.price })
     res.send('record successfuly added!');
 })
 
-app.put('/user', (req, res) => {
-    res.send('this is put req');
-})
+app.put('/data/:id', (req, res) => {
+    const blog = data.find(u => u.id === parseInt(req.params.id));
+    if (!blog) return res.status(404).send('Blog not found');
 
-app.delete('/user', (req, res) => {
+    blog.src = req.body.src;
+    blog.heading = req.body.heading;
+    blog.desc = req.body.desc;
+
+    res.json(blog); 
+});
+
+
+app.delete('/data/:id', (req, res) => {
+    data = data.filter(u => u.id !== parseInt(req.params.id));
     res.send('this is delete req');
 })
 
